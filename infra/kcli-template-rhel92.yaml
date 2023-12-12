@@ -1,0 +1,15 @@
+rhel92.vm:
+  template: /home/alvaro/vms/rhel-9.2-x86_64-kvm.qcow2
+  numcpus: 2
+  memory: 4096
+  disks:
+    - size: 50
+  nets:
+    - name: default
+      ip: 192.168.122.100
+      mask: 255.255.255.0
+      gateway: 192.168.122.1
+  cmds:
+    - echo root | passwd --stdin root
+    - useradd -G wheel alvaro
+    - echo alvaro | passwd --stdin alvaro
