@@ -1,0 +1,33 @@
+---
+- name: Prepare VM with the correct repos
+  hosts: web
+  become: true
+  tasks:
+
+    - name: Add two IPv4 DNS server addresses
+      community.general.nmcli:
+        conn_name: "System eth0"
+        ifname: eth0
+        type: ethernet
+        dns4:
+        - 8.8.8.8
+        - 8.8.4.4
+        state: present
+        autoconnect: yes
+
+    # TO DO: Need to wait for reboot of nmcli
+
+    - name: Register and subscribe the system
+      community.general.redhat_subscription:
+        username: "{{ rh_username }}"
+        password: "{{ rh_password }}"
+        state: present
+
+    - name: Enable Red Hat repositories
+      community.general.rhsm_repository:
+        name:
+          - rhel-9-for-x86_64-baseos-rpms
+          - rhel-9-for-x86_64-appstream-rpms
+        state: enabled
+
+...
