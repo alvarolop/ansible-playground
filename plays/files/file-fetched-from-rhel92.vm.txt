@@ -1,0 +1,6 @@
+This is the example file
+Add this line to the file
+# BEGIN ANSIBLE MANAGED BLOCK
+First line in the additional block of text
+Second line in the additional block of text
+# END ANSIBLE MANAGED BLOCK

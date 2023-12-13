@@ -19,7 +19,7 @@
 
     - name: Copy a file to managed hosts
       ansible.builtin.copy:
-        src: ../files/file-to-copy.txt
+        src: file-to-copy.txt
         dest: ~/copied-file.txt
         mode: "0640"
 
@@ -40,17 +40,17 @@
     - name: Retrieve a file from reference host
       ansible.builtin.fetch:
         src: ~/copied-file.txt
-        dest: ../files/file-fetched-from-{{ inventory_hostname }}.txt
+        dest: files/file-fetched-from-{{ inventory_hostname }}.txt
         flat: true
 
     # - name: Synchronize local file to remote files
     #   ansible.posix.synchronize:
-    #     src: "../files/file-to-copy.txt"
-    #     dest: "~/synced-file.txt"
+    #     src: file-to-copy.txt
+    #     dest: ~/synced-file.txt
 
     - name: Render hosts file
       ansible.builtin.template:
-        src: ../templates/etc-hosts.j2
+        src: etc-hosts.j2
         dest: ~/etc-hosts
         mode: "0640"
       vars:
@@ -59,7 +59,7 @@
 
     - name: Render motd file
       ansible.builtin.template:
-        src: ../templates/etc-motd.j2
+        src: etc-motd.j2
         dest: ~/etc-motd
         mode: "0640"
       vars:
