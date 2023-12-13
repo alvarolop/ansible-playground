@@ -89,15 +89,18 @@ ansible-navigator collections
 
 # Get documentation for one module
 ansible-navigator -s doc module_name
+
+# Create a role from scratch
+ansible-galaxy init my_role
 ----
 
-.Autogenerate ansible.cfg with defaults
+.Autogenerate ansible config file with defaults
 [source, bash]
 ----
 ansible-navigator config init --disabled > ansible.cfg
 ----
 
-.Autogenerate ansible.cfg with defaults
+.Autogenerate ansible-navigator YAML with defaults
 [source, bash]
 ----
 ansible-navigator settings --sample > ansible-navigator.yml
@@ -151,6 +154,8 @@ ansible-navigator run -m stdout plays/50_deploy_files.yaml
 ----
 ansible-navigator run -m stdout --ask-become-pass  plays/60_complex_plays.yaml
 ----
+
+
 
 
 
