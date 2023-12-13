@@ -1,0 +1,59 @@
+---
+- name: Ansible Task Control demonstration
+  hosts: web
+  become: true
+  vars:
+    run_my_task: true
+  tasks:
+
+  # - name: Postfix and Dovecot are running
+  #   ansible.builtin.service:
+  #     name: "{{ item }}"
+  #     state: started
+  #   loop: "{{ mail_services }}"
+
+    - name: Users exist and are in the correct groups
+      ansible.builtin.user:
+        name: "{{ item['name'] }}"
+        state: present
+        groups: "{{ item['groups'] }}"
+      loop:
+        - name: jane
+          groups: wheel
+        - name: joe
+          groups: root
+
+    - name: Looping Echo Task
+      ansible.builtin.shell: "echo This is my item: {{ item }}"
+      loop:
+        - one
+        - two
+      register: echo_results
+
+    - name: Show echo_results variable
+      ansible.builtin.debug:
+        var: echo_results
+
+    - name: Execute conditional task based on Boolean
+      ansible.builtin.debug:
+        msg: "Only execute if boolean is true"
+      when: run_my_task is defined and (run_my_task | bool)
+
+    - name: Execute conditional task based on var definition
+      ansible.builtin.debug:
+        msg: "Only execute if var is defined"
+      when: run_my_task is defined
+
+    # - name: Installing and configuring DNF versionlock plugin
+    #   when: ansible_distribution == "RedHat"
+    #   block:
+    #     - name: Package needed by dnf
+    #       ansible.builtin.dnf:
+    #         name: python3-dnf-plugin-versionlock
+    #         state: present
+    #     - name: Lock version of tzdata
+    #       ansible.builtin.lineinfile:
+    #         dest: /etc/yum/pluginconf.d/versionlock.list
+    #         line: tzdata-2016j-1
+    #         state: present
+...
