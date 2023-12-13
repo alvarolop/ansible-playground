@@ -1,0 +1,27 @@
+---
+- name: Ansible Facts demonstration
+  hosts: web
+  become: true
+  vars:
+    mail_services:
+      - postfix
+      - dovecot
+  tasks:
+
+  # - name: Postfix and Dovecot are running
+  #   ansible.builtin.service:
+  #     name: "{{ item }}"
+  #     state: started
+  #   loop: "{{ mail_services }}"
+
+  - name: Users exist and are in the correct groups
+    user:
+      name: "{{ item['name'] }}"
+      state: present
+      groups: "{{ item['groups'] }}"
+    loop:
+      - name: jane
+        groups: wheel
+      - name: joe
+        groups: root
+...

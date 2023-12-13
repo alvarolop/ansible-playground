@@ -1,0 +1,15 @@
+---
+- name: Variables demonstration
+  hosts: web
+  become: false
+  tasks:
+
+    - name: Show value of my_colour
+      ansible.builtin.debug:
+        msg: The value of the variable my_colour is {{ my_colour }}
+
+    - name: Show value of my_secret
+      ansible.builtin.debug:
+        msg: The value of the variable my_secret is {{ my_secret }}
+
+    # - name: Make an HTTP API call
