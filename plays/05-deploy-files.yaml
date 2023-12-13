@@ -1,0 +1,52 @@
+---
+- name: Ansible Deploy Files demonstration
+  hosts: web
+  become: false
+  tasks:
+
+    - name: Touch a file and set permissions
+      ansible.builtin.file:
+        path: ~/test.txt
+        owner: alvaro
+        group: alvaro
+        mode: "0640"
+        state: touch
+
+    - name: SELinux type is set to user_home_t
+      ansible.builtin.file:
+        path: ~/test.txt
+        setype: user_home_t
+
+    - name: Copy a file to managed hosts
+      ansible.builtin.copy:
+        src: ../files/file-to-copy.txt
+        dest: ~/copied-file.txt
+        mode: "0640"
+
+    - name: Add a line of text to a file
+      ansible.builtin.lineinfile:
+        path: ~/copied-file.txt
+        line: 'Add this line to the file'
+        state: present
+
+    - name: Add additional lines to a file
+      ansible.builtin.blockinfile:
+        path: ~/copied-file.txt
+        block: |
+          First line in the additional block of text
+          Second line in the additional block of text
+        state: present
+
+    - name: Retrieve a file from reference host
+      ansible.builtin.fetch:
+        src: ~/copied-file.txt
+        dest: ../files/file-fetched-from-{{ inventory_hostname }}.txt
+        flat: true
+
+    # - name: Synchronize local file to remote files
+    #   ansible.posix.synchronize:
+    #     src: "../files/file-to-copy.txt"
+    #     dest: "~/synced-file.txt"
+
+
+...
