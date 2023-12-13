@@ -124,7 +124,6 @@ ansible-navigator run -m stdout --vault-password-file=vault-pass.txt plays/20_va
 
 == Gather Facts
 
-
 [source, bash]
 ----
 ansible-navigator run -m stdout plays/30_facts.yaml
@@ -132,7 +131,6 @@ ansible-navigator run -m stdout plays/30_facts.yaml
 
 
 == Loops, Conditionals, and Handlers
-
 
 [source, bash]
 ----
@@ -142,7 +140,6 @@ ansible-navigator run -m stdout --ask-become-pass plays/40_task_control.yaml
 
 == Manage Files
 
-
 [source, bash]
 ----
 ansible-navigator run -m stdout plays/50_deploy_files.yaml
@@ -150,8 +147,18 @@ ansible-navigator run -m stdout plays/50_deploy_files.yaml
 
 == Complex Plays
 
+[source, bash]
+----
+ansible-navigator run -m stdout --ask-become-pass  plays/60_complex_plays.yaml
+----
+
+
+
+== Manage Subscriptions
 
 [source, bash]
 ----
-ansible-navigator run -m stdout plays/60_complex_plays.yaml
+ansible-navigator run -m stdout --ask-become-pass  plays/90_rh_subs.yaml
 ----
+
+
