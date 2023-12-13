@@ -1,4 +1,4 @@
-README_2.adoc
+docs/README_*.adoc
 *.log
 files/file-fetched-*
 host_vars/rhel92.vm/vault-private.yml
