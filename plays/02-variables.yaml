@@ -13,3 +13,4 @@
         msg: The value of the variable my_secret is {{ my_secret }}
 
     # - name: Make an HTTP API call
+...

@@ -10,3 +10,4 @@
         key: '{{ item }}'
       with_file:
         - ~/.ssh/id_rsa.pub
+...
