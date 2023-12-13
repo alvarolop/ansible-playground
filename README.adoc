@@ -43,7 +43,7 @@ In this repo, I want to explore some of the basic Ansible features that allow yo
 .Manage the new VM
 [source, bash]
 ----
-kcli create plan -f kcli/template-rhel92.yaml rhel92 # Create a basic plan with one VM
+kcli create plan -f docs/kcli-template-rhel92.yaml rhel92 # Create a basic plan with one VM
 kcli plan -s rhel92 # Start the plan
 kcli plan -w rhel92 # Stop the plan
 kcli list vm        # Show VMs status
@@ -127,5 +127,23 @@ ansible-navigator run -m stdout --vault-password-file=vault-pass.txt plays/02-va
 
 [source, bash]
 ----
-ansible-navigator run -m stdout --vault-password-file=vault-pass.txt plays/03-facts.yaml
+ansible-navigator run -m stdout plays/03-facts.yaml
+----
+
+
+== Ansible Loops, Conditionals, and Handlers
+
+
+[source, bash]
+----
+ansible-navigator run -m stdout --ask-become-pass plays/04-task-control.yaml
+----
+
+
+== Manage Files
+
+
+[source, bash]
+----
+ansible-navigator run -m stdout plays/05-deploy-files.yaml
 ----
