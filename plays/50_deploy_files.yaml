@@ -48,5 +48,21 @@
     #     src: "../files/file-to-copy.txt"
     #     dest: "~/synced-file.txt"
 
+    - name: Render hosts file
+      ansible.builtin.template:
+        src: ../templates/etc-hosts.j2
+        dest: ~/etc-hosts
+        mode: "0640"
+      vars:
+        finished: true
+        result: This is just a final comment in the file
+
+    - name: Render motd file
+      ansible.builtin.template:
+        src: ../templates/etc-motd.j2
+        dest: ~/etc-motd
+        mode: "0640"
+      vars:
+        system_owner: alvaro@example.com
 
 ...

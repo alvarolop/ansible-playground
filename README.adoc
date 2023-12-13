@@ -118,25 +118,25 @@ ansible-vault create --vault-password-file=vault-pass.txt group_vars/web/vault.y
 ansible-vault edit --vault-password-file=vault-pass.txt group_vars/web/vault.yml
 
 # Execute Plays with password
-ansible-navigator run -m stdout --vault-password-file=vault-pass.txt plays/02-variables.yaml 
+ansible-navigator run -m stdout --vault-password-file=vault-pass.txt plays/20_variables.yaml 
 ----
 
 
-== Ansible Facts
+== Gather Facts
 
 
 [source, bash]
 ----
-ansible-navigator run -m stdout plays/03-facts.yaml
+ansible-navigator run -m stdout plays/30_facts.yaml
 ----
 
 
-== Ansible Loops, Conditionals, and Handlers
+== Loops, Conditionals, and Handlers
 
 
 [source, bash]
 ----
-ansible-navigator run -m stdout --ask-become-pass plays/04-task-control.yaml
+ansible-navigator run -m stdout --ask-become-pass plays/40_task_control.yaml
 ----
 
 
@@ -145,5 +145,13 @@ ansible-navigator run -m stdout --ask-become-pass plays/04-task-control.yaml
 
 [source, bash]
 ----
-ansible-navigator run -m stdout plays/05-deploy-files.yaml
+ansible-navigator run -m stdout plays/50_deploy_files.yaml
+----
+
+== Complex Plays
+
+
+[source, bash]
+----
+ansible-navigator run -m stdout plays/60_complex_plays.yaml
 ----

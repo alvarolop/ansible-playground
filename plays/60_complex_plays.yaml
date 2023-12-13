@@ -1,0 +1,9 @@
+---
+- name: Ansible Complex Plays demonstration
+  hosts: web
+  become: false
+  tasks:
+
+
+
+...
