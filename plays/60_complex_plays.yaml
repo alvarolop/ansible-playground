@@ -1,9 +1,16 @@
 ---
+# - name: Prepare the VM with subs
+#   ansible.builtin.import_playbook: ../plays/90_rh_subs.yaml
+
 - name: Ansible Complex Plays demonstration
   hosts: web
-  become: false
+  become: true
   tasks:
 
+    - name: Install web server with Import
+      ansible.builtin.import_tasks: ../plays/61_webserver_tasks.yaml
 
+    - name: (Recommended) Install web server with Include
+      ansible.builtin.include_tasks: 61_webserver_tasks.yaml
 
 ...

@@ -1,4 +1,11 @@
 ---
+- name: Installs the httpd package
+  ansible.builtin.dnf:
+    name: httpd
+    state: latest
 
-
+- name: Starts the httpd service
+  ansible.builtin.service:
+    name: httpd
+    state: started
 ...
