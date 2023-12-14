@@ -195,3 +195,6 @@ ansible-navigator run -m stdout --ask-become-pass plays/90_rh_subs.yaml
 ----
 
 
+
+
+TIP: I strongly recommend the exercises proposed by *mateuszstompor* in his repo https://github.com/mateuszstompor/rhce-ex294-exam/tree/main[rhce-ex294-exam]. He has some generic exercises that provide a good starting point to make sure that you control the topics that appear in the RHCE exam for RHEL 9.
