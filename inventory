@@ -1,2 +1,2 @@
 [web]
-rhel92.vm
+rhel92.vm ansible_host=192.168.122.100
