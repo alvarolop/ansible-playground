@@ -2,3 +2,7 @@ docs/README_*.adoc
 *.log
 files/file-fetched-*
 host_vars/rhel92.vm/vault-private.yml
+roles/*
+!roles/alvaro.testing
+!roles/requirements.yml
+collections/ansible_collections
