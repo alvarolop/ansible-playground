@@ -1,0 +1,20 @@
+selinux_state: enforcing
+
+selinux_booleans:
+  - name: 'httpd_enable_homedirs'
+    state: 'on'
+    persistent: 'yes'
+
+selinux_fcontexts:
+  - target: '/srv/www(/.*)?'
+    setype: 'httpd_sys_content_t'
+    state: 'present'
+
+selinux_restore_dirs:
+  - /srv/www
+
+selinux_ports:
+  - ports: '82'
+    setype: 'http_port_t'
+    proto: 'tcp'
+    state: 'present'

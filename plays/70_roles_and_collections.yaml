@@ -1,0 +1,39 @@
+---
+- name: Ansible using roles and collections
+  hosts: web
+  become: true
+  pre_tasks:
+    - name: This task runs first
+      ansible.builtin.debug:
+        msg: This task is in pre_tasks
+      notify: my handler
+      changed_when: true
+  roles:
+    - name: Import my own role
+      role: alvaro.testing
+      tags:
+        - my-role
+
+    - name: Import a RHEL system role
+      role: redhat.rhel_system_roles.timesync
+      tags:
+        - system-role
+
+  tasks:
+    - name: This task runs after the roles
+      ansible.builtin.debug:
+        msg: This task is in tasks
+      notify: my handler
+      changed_when: true
+  post_tasks:
+    - name: This task runs last
+      ansible.builtin.debug:
+        msg: This task is in post_tasks
+      notify: my handler
+      changed_when: true
+  handlers:
+    - name: my handler
+      ansible.builtin.debug:
+        msg: Running my handler
+
+...
