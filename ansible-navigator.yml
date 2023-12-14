@@ -64,7 +64,7 @@ ansible-navigator:
 #         KEY1: VALUE1
 #         KEY2: VALUE2
 #         KEY3: VALUE3
-    image: quay.io/alopezme/ee-ocp-vmware:latest
+    image: registry.redhat.io/ansible-automation-platform-24/ee-supported-rhel9:latest
     pull:
 #       arguments:
 #         - "--tls-verify=false"
