@@ -91,7 +91,7 @@ ansible-navigator collections
 ansible-navigator -s doc module_name
 
 # Create a role from scratch
-ansible-galaxy init my_role
+ansible-galaxy init alvaro.testing
 ----
 
 .Autogenerate ansible config file with defaults
@@ -148,12 +148,40 @@ ansible-navigator run -m stdout --ask-become-pass plays/40_task_control.yaml
 ansible-navigator run -m stdout plays/50_deploy_files.yaml
 ----
 
+
 == Complex Plays
 
 [source, bash]
 ----
-ansible-navigator run -m stdout --ask-become-pass  plays/60_complex_plays.yaml
+ansible-navigator run -m stdout --ask-become-pass plays/60_complex_plays.yaml
 ----
+
+
+== Roles and Collections
+
+.Install existing roles and collections
+[source, bash]
+----
+# Install a Role
+ansible-galaxy role install -r roles/requirements.yml
+
+# Install a Collection
+ansible-galaxy collection install -r collections/requirements.yml -p collections
+----
+
+KCS about System Roles availability and support: https://access.redhat.com/articles/3050101
+
+
+[source, bash]
+----
+ansible-navigator run -m stdout --ask-become-pass plays/70_roles_and_collections.yaml
+----
+
+
+== Troubleshooting
+
+
+
 
 
 
@@ -163,7 +191,7 @@ ansible-navigator run -m stdout --ask-become-pass  plays/60_complex_plays.yaml
 
 [source, bash]
 ----
-ansible-navigator run -m stdout --ask-become-pass  plays/90_rh_subs.yaml
+ansible-navigator run -m stdout --ask-become-pass plays/90_rh_subs.yaml
 ----
 
 
