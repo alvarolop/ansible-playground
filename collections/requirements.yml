@@ -1,0 +1,10 @@
+---
+collections:
+  - name: community.crypto
+
+  - name: ansible.posix
+    version: 1.2.0 
+
+  # - name: redhat.rhel_system_roles
+  
+  - name: fedora.linux_system_roles

@@ -1,0 +1,5 @@
+---
+# tasks file for alvaro.testing
+- name: Main | This task runs is from the role
+  ansible.builtin.debug:
+    msg: This task is inside the role

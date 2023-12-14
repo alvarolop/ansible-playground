@@ -1,0 +1,6 @@
+---
+  - name: geerlingguy.java
+    version: 2.3.2
+  - name: geerlingguy.redis
+    version: 1.8.0
+...
