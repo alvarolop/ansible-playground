@@ -8,6 +8,7 @@
         user: alvaro
         state: present
         key: '{{ item }}'
+        # key: "{{ lookup('file', '{{ authorized_key }}') }}"
       with_file:
         - ~/.ssh/id_rsa.pub
 ...
