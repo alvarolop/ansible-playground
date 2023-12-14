@@ -11,11 +11,11 @@
     - name: Print commonly used facts
       ansible.builtin.debug:
         msg: >-
-          hostname: {{ ansible_facts['hostname'] }}; 
-          ip-address: {{ ansible_facts['default_ipv4']['address'] }}; 
-          os-name: {{ ansible_facts['hostname'] }}; 
+          hostname: {{ ansible_facts['hostname'] }};
+          ip-address: {{ ansible_facts['default_ipv4']['address'] }};
+          os-name: {{ ansible_facts['hostname'] }};
           os-distro: {{ ansible_facts['distribution'] }} {{ ansible_facts['distribution_major_version'] }}
-  
+
     # - name: Print all hostvars
     #   ansible.builtin.debug:
     #     var: hostvars['rhel92.vm']
@@ -23,9 +23,9 @@
     - name: Print commonly used facts from hostvars
       ansible.builtin.debug:
         msg: >-
-          hostname: {{ hostvars['rhel92.vm']['ansible_facts']['hostname'] }}; 
-          ip-address: {{ hostvars['rhel92.vm']['ansible_facts']['default_ipv4']['address'] }}; 
-          os-name: {{ hostvars['rhel92.vm']['ansible_facts']['hostname'] }}; 
+          hostname: {{ hostvars['rhel92.vm']['ansible_facts']['hostname'] }};
+          ip-address: {{ hostvars['rhel92.vm']['ansible_facts']['default_ipv4']['address'] }};
+          os-name: {{ hostvars['rhel92.vm']['ansible_facts']['hostname'] }};
           os-distro: {{ hostvars['rhel92.vm']['ansible_facts']['distribution'] }} {{ hostvars['rhel92.vm']['ansible_facts']['distribution_major_version'] }}
 
 ...
