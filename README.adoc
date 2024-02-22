@@ -38,7 +38,11 @@ In this repo, I want to explore some of the basic Ansible features that allow yo
 
 
 
-== Set up a local environment
+
+
+
+
+== Setting up a local environment
 
 .Manage the new VM
 [source, bash]
@@ -63,8 +67,16 @@ ssh-copy-id rhel92.vm
 ----
 
 
+== Ansible Automation Platform
 
-== Vi useful configuration
+Red Hat Ansible Automation Platform is an end-to-end automation platform to configure systems, deploy software, and orchestrate advanced workflows.
+
+
+
+
+
+
+=== Vi useful configuration
 
 [source, console]
 ----
@@ -72,8 +84,9 @@ autocmd FileType yaml setlocal ai ts=2 sw=2 et
 ----
 
 
+== Ansible basics
 
-== Get documentation
+=== Get documentation
 
 .List all the available modules
 [source, bash]
@@ -109,7 +122,7 @@ ansible-navigator settings --sample > ansible-navigator.yml
 
 
 
-== Ansible Vault
+=== Ansible Vault
 
 
 [source, bash]
@@ -125,7 +138,7 @@ ansible-navigator run -m stdout --vault-password-file=vault-pass.txt plays/20_va
 ----
 
 
-== Gather Facts
+=== Gather Facts
 
 [source, bash]
 ----
@@ -133,7 +146,7 @@ ansible-navigator run -m stdout plays/30_facts.yaml
 ----
 
 
-== Loops, Conditionals, and Handlers
+=== Loops, Conditionals, and Handlers
 
 [source, bash]
 ----
@@ -141,7 +154,7 @@ ansible-navigator run -m stdout --ask-become-pass plays/40_task_control.yaml
 ----
 
 
-== Manage Files
+=== Manage Files
 
 [source, bash]
 ----
@@ -149,7 +162,7 @@ ansible-navigator run -m stdout plays/50_deploy_files.yaml
 ----
 
 
-== Complex Plays
+=== Complex Plays
 
 [source, bash]
 ----
@@ -157,7 +170,7 @@ ansible-navigator run -m stdout --ask-become-pass plays/60_complex_plays.yaml
 ----
 
 
-== Roles and Collections
+=== Roles and Collections
 
 .Install existing roles and collections
 [source, bash]
@@ -178,7 +191,6 @@ ansible-navigator run -m stdout --ask-become-pass plays/70_roles_and_collections
 ----
 
 
-== Troubleshooting
 
 
 
@@ -186,8 +198,7 @@ ansible-navigator run -m stdout --ask-become-pass plays/70_roles_and_collections
 
 
 
-
-== Manage Subscriptions
+=== Manage Subscriptions
 
 [source, bash]
 ----
